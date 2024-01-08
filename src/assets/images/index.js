@@ -1,15 +1,9 @@
-import hero from './hero.jpg'
-import meta from './meta.png'
-import shopify from './shopify.png'
-import starbucks from './starbucks.png'
-import tesla from './tesla.png'
-import logo from './logo.svg'
+import hero from "./hero.jpg";
+import logo from "./logo.svg";
+import amazingCo from "./amazingco.png";
+import nookal from "./nookal.png";
+import dnb from "./dnb.png";
+import core from "./core.png";
+import ibm from "./ibm.png";
 
-export {
-    hero,
-    meta,
-    shopify,
-    starbucks,
-    tesla,
-    logo
-}
+export { hero, logo, amazingCo, nookal, dnb, core, ibm };

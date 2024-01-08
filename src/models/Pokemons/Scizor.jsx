@@ -29,7 +29,7 @@ const Scizor = (props) => {
         <a.group name="Sketchfab_Scene">
           <a.group
             name="Sketchfab_model"
-            position={[230, 45, 300]}
+            position={[330, 45, 230]}
             rotation={[-Math.PI / 2, 0, 0]}
           >
             <a.group name="root" scale={14}>

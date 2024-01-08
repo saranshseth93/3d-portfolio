@@ -6,7 +6,7 @@ Source: https://sketchfab.com/3d-models/hobbit-house-low-poly-5ce32873e252416aa7
 Title: Hobbit House - Low poly
 */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { a } from "@react-spring/three";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
@@ -22,6 +22,7 @@ import Beedrill from "./Pokemons/Beedrill";
 import Scizor from "./Pokemons/Scizor";
 import Infernape from "./Pokemons/Infernape";
 import Self from "./Pokemons/Self";
+import ContactCharacter from "./Pokemons/ContactCharacter";
 
 export function Island({
   isRotating,
@@ -31,6 +32,7 @@ export function Island({
   ...props
 }) {
   const islandRef = useRef();
+  const [normRotation, setNormRotation] = useState(0);
 
   // Get access to the Three.js renderer and viewport
   const { gl, viewport } = useThree();
@@ -163,6 +165,8 @@ export function Island({
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
+      setNormRotation(normalizedRotation);
+
       console.log(normalizedRotation);
 
       // Set the current stage based on the island's orientation
@@ -170,15 +174,15 @@ export function Island({
         case normalizedRotation >= 4.27 && normalizedRotation <= 4.6:
           setCurrentStage(1);
           break;
-        // case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
-        //   setCurrentStage(3);
-        //   break;
-        // case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
-        //   setCurrentStage(2);
-        //   break;
-        // case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-        //   setCurrentStage(4);
-        //   break;
+        case normalizedRotation >= 3.26 && normalizedRotation <= 3.75:
+          setCurrentStage(3);
+          break;
+        case normalizedRotation >= 0.93 && normalizedRotation <= 1.08:
+          setCurrentStage(2);
+          break;
+        case normalizedRotation >= 5.6 && normalizedRotation <= 6.15:
+          setCurrentStage(4);
+          break;
         default:
           setCurrentStage(null);
       }
@@ -221,6 +225,10 @@ export function Island({
           <Infernape {...props} />
 
           <Self {...props} />
+
+          {normRotation >= 5 && normRotation <= 6.3 && (
+            <ContactCharacter {...props} />
+          )}
 
           <a.group
             position={[11.677, 110.352, -49.61]}

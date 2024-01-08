@@ -29,7 +29,7 @@ const Mewtwo = (props) => {
         <a.group name="Sketchfab_Scene">
           <a.group
             name="Sketchfab_model"
-            position={[-450, 200, 200]}
+            position={[-400, 40, 200]}
             rotation={[-Math.PI / 2, 0, 4.8]}
           >
             <a.group name="root" scale={8}>

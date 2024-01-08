@@ -30,6 +30,60 @@ const Self = (props) => {
         <a.group name="Sketchfab_Scene">
           <a.group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
             <a.group
+              name="585d88572dc241f9803a765d9f5514e8fbx"
+              position={[450, 20, 55]}
+              rotation={[Math.PI / 2, 1.3, 0]}
+              scale={0.9}
+            >
+              <a.group name="Object_2">
+                <a.group name="RootNode">
+                  <a.group name="Armature" scale={1}>
+                    <a.group name="Object_5">
+                      <primitive object={nodes._rootJoint} />
+                      <skinnedMesh
+                        name="Object_90"
+                        geometry={nodes.Object_90.geometry}
+                        material={materials.Clothing}
+                        skeleton={nodes.Object_90.skeleton}
+                      />
+                      <skinnedMesh
+                        name="Object_92"
+                        geometry={nodes.Object_92.geometry}
+                        material={materials.Clothing}
+                        skeleton={nodes.Object_92.skeleton}
+                      />
+                      <skinnedMesh
+                        name="Object_94"
+                        geometry={nodes.Object_94.geometry}
+                        material={materials.Clothing}
+                        skeleton={nodes.Object_94.skeleton}
+                      />
+                      <skinnedMesh
+                        name="Object_96"
+                        geometry={nodes.Object_96.geometry}
+                        material={materials.Clothing}
+                        skeleton={nodes.Object_96.skeleton}
+                      />
+                      <a.group name="Object_89" />
+                      <a.group name="Object_91" />
+                      <a.group name="Object_93" />
+                      <a.group name="Object_95" />
+                    </a.group>
+                  </a.group>
+                  <a.group name="Body" />
+                  <a.group name="Bottoms" />
+                  <a.group name="Tops" />
+                  <a.group name="Shoes" />
+                </a.group>
+              </a.group>
+            </a.group>
+          </a.group>
+        </a.group>
+      </a.group>
+      {/* <a.group ref={selfRef} {...props} dispose={null}>
+        <a.group name="Sketchfab_Scene">
+          <a.group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
+            <a.group
               name="d6f42ede6cb54a05919bfed49102f473fbx"
               position={[450, 50, 55]}
               rotation={[Math.PI / 2, 1.3, 0]}
@@ -149,7 +203,7 @@ const Self = (props) => {
             </a.group>
           </a.group>
         </a.group>
-      </a.group>
+      </a.group> */}
     </>
   );
 };
