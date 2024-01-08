@@ -17,212 +17,132 @@ const Self = (props) => {
   const { nodes, materials, animations } = useGLTF(selfScene);
 
   const { actions } = useAnimations(animations, selfRef);
-  console.log(animations);
 
   useEffect(() => {
-    if (actions && actions["Idle"]) {
-      actions["Idle"].play();
+    if (actions && actions["Armature|Armature|mixamo.com|Layer0"]) {
+      actions["Armature|Armature|mixamo.com|Layer0"].play();
     }
   }, [actions]);
+
   return (
     <>
       <a.group ref={selfRef} {...props} dispose={null}>
         <a.group name="Sketchfab_Scene">
           <a.group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
             <a.group
-              name="e4f8e14523654cbb8d2da1ed3d9e0445fbx"
-              position={[450, 38, 45]}
+              name="d6f42ede6cb54a05919bfed49102f473fbx"
+              position={[450, 50, 55]}
               rotation={[Math.PI / 2, 1.3, 0]}
-              scale={1}
+              scale={0.9}
             >
               <a.group name="Object_2">
                 <a.group name="RootNode">
                   <a.group
-                    name="Cylinder082"
-                    position={[45.768, 52.674, -0.36]}
-                    rotation={[-Math.PI / 2, 0, 0]}
-                    scale={100}
-                  />
-                  <a.group
-                    name="BezierCurve032"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
-                  />
-                  <a.group
-                    name="Armature001"
-                    rotation={[-Math.PI / 2, 0, 0]}
+                    name="Light"
+                    position={[407.625, 590.386, -100.545]}
+                    rotation={[1.89, 0.881, -2.045]}
                     scale={100}
                   >
-                    <a.group name="Object_7">
+                    <a.group name="Object_5" rotation={[Math.PI / 2, 0, 0]}>
+                      <a.group name="Object_6" />
+                    </a.group>
+                  </a.group>
+                  <a.group
+                    name="Camera"
+                    position={[735.889, 495.831, 692.579]}
+                    rotation={[-Math.PI, 0.756, 2.68]}
+                    scale={100}
+                  >
+                    <a.group name="Object_8" />
+                  </a.group>
+                  <a.group name="Armature">
+                    <a.group name="Object_10">
                       <primitive object={nodes._rootJoint} />
                       <skinnedMesh
-                        name="Object_10"
-                        geometry={nodes.Object_10.geometry}
-                        material={materials.MatMushroomBody}
-                        skeleton={nodes.Object_10.skeleton}
+                        name="Object_91"
+                        geometry={nodes.Object_91.geometry}
+                        material={materials["mat0.003"]}
+                        skeleton={nodes.Object_91.skeleton}
                       />
                       <skinnedMesh
-                        name="Object_12"
-                        geometry={nodes.Object_12.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_12.skeleton}
+                        name="Object_93"
+                        geometry={nodes.Object_93.geometry}
+                        material={materials["mat0.001"]}
+                        skeleton={nodes.Object_93.skeleton}
                       />
                       <skinnedMesh
-                        name="Object_103"
-                        geometry={nodes.Object_103.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_103.skeleton}
+                        name="Object_95"
+                        geometry={nodes.Object_95.geometry}
+                        material={materials.mat0}
+                        skeleton={nodes.Object_95.skeleton}
                       />
                       <skinnedMesh
-                        name="Object_105"
-                        geometry={nodes.Object_105.geometry}
-                        material={materials.MatMushroomBody}
-                        skeleton={nodes.Object_105.skeleton}
+                        name="Object_97"
+                        geometry={nodes.Object_97.geometry}
+                        material={materials["mat0.004"]}
+                        skeleton={nodes.Object_97.skeleton}
                       />
                       <skinnedMesh
-                        name="Object_107"
-                        geometry={nodes.Object_107.geometry}
-                        material={materials.MatMushroomBody}
-                        skeleton={nodes.Object_107.skeleton}
+                        name="Object_99"
+                        geometry={nodes.Object_99.geometry}
+                        material={materials["mat0.002"]}
+                        skeleton={nodes.Object_99.skeleton}
                       />
                       <skinnedMesh
-                        name="Object_109"
-                        geometry={nodes.Object_109.geometry}
-                        material={materials.MatMushroomBody}
-                        skeleton={nodes.Object_109.skeleton}
-                      />
-                      <skinnedMesh
-                        name="Object_111"
-                        geometry={nodes.Object_111.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_111.skeleton}
-                      />
-                      <skinnedMesh
-                        name="Object_113"
-                        geometry={nodes.Object_113.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_113.skeleton}
-                      />
-                      <skinnedMesh
-                        name="Object_115"
-                        geometry={nodes.Object_115.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_115.skeleton}
-                      />
-                      <skinnedMesh
-                        name="Object_117"
-                        geometry={nodes.Object_117.geometry}
-                        material={materials.MatMushroom}
-                        skeleton={nodes.Object_117.skeleton}
+                        name="Object_101"
+                        geometry={nodes.Object_101.geometry}
+                        material={materials["mat0.005"]}
+                        skeleton={nodes.Object_101.skeleton}
                       />
                       <a.group
-                        name="Object_9"
-                        position={[45.768, 52.674, -0.36]}
+                        name="Object_90"
                         rotation={[-Math.PI / 2, 0, 0]}
-                        scale={100}
                       />
                       <a.group
-                        name="Object_11"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
-                      />
-                      <a.group
-                        name="Object_102"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
-                      />
-                      <a.group
-                        name="Object_104"
-                        position={[45.768, 52.674, -0.36]}
+                        name="Object_92"
                         rotation={[-Math.PI / 2, 0, 0]}
-                        scale={100}
                       />
                       <a.group
-                        name="Object_106"
-                        position={[45.768, 52.674, -0.36]}
+                        name="Object_94"
                         rotation={[-Math.PI / 2, 0, 0]}
-                        scale={100}
                       />
                       <a.group
-                        name="Object_108"
+                        name="Object_96"
                         rotation={[-Math.PI / 2, 0, 0]}
-                        scale={100}
                       />
                       <a.group
-                        name="Object_110"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
+                        name="Object_98"
+                        rotation={[-Math.PI / 2, 0, 0]}
                       />
                       <a.group
-                        name="Object_112"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
-                      />
-                      <a.group
-                        name="Object_114"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
-                      />
-                      <a.group
-                        name="Object_116"
-                        position={[0, 3.925, 0]}
-                        rotation={[-0.688, -0.283, -2.671]}
-                        scale={100}
+                        name="Object_100"
+                        rotation={[-Math.PI / 2, 0, 0]}
                       />
                     </a.group>
                   </a.group>
                   <a.group
-                    name="BezierCurve003"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
-                  />
-                  <a.group
-                    name="Cylinder219"
-                    position={[45.768, 52.674, -0.36]}
+                    name="Mesh_0074rip"
                     rotation={[-Math.PI / 2, 0, 0]}
-                    scale={100}
                   />
                   <a.group
-                    name="Cylinder220"
-                    position={[45.768, 52.674, -0.36]}
+                    name="Mesh_0085rip"
                     rotation={[-Math.PI / 2, 0, 0]}
-                    scale={100}
                   />
                   <a.group
-                    name="Cube002"
+                    name="Mesh_0082rip"
                     rotation={[-Math.PI / 2, 0, 0]}
-                    scale={100}
                   />
                   <a.group
-                    name="BezierCurve001"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
+                    name="Mesh_0072rip"
+                    rotation={[-Math.PI / 2, 0, 0]}
                   />
                   <a.group
-                    name="BezierCurve002"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
+                    name="Mesh_0088rip"
+                    rotation={[-Math.PI / 2, 0, 0]}
                   />
                   <a.group
-                    name="BezierCurve004"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
-                  />
-                  <a.group
-                    name="BezierCurve005"
-                    position={[0, 3.925, 0]}
-                    rotation={[-0.688, -0.283, -2.671]}
-                    scale={100}
+                    name="Mesh_0073rip"
+                    rotation={[-Math.PI / 2, 0, 0]}
                   />
                 </a.group>
               </a.group>

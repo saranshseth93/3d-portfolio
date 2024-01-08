@@ -16,7 +16,6 @@ const Scizor = (props) => {
   const scizorRef = useRef();
   const { nodes, materials, animations } = useGLTF(scizorScene);
   const { actions } = useAnimations(animations, scizorRef);
-  console.log(animations);
 
   useEffect(() => {
     if (actions && actions["ArmatureAction.002"]) {

@@ -34,7 +34,7 @@ const Boppin = (props) => {
           <a.group
             name="Sketchfab_model"
             rotation={[-Math.PI / 2, -0.8, 2]}
-            position={[-350, 68, 0]}
+            position={[-350, 100, 0]}
             scale={8.975}
           >
             <a.group

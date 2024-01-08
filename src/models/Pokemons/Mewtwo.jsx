@@ -16,7 +16,6 @@ const Mewtwo = (props) => {
   const mewtwoRef = useRef();
   const { nodes, materials, animations } = useGLTF(mewtwoScene);
   const { actions } = useAnimations(animations, mewtwoRef);
-  console.log(animations);
 
   useEffect(() => {
     if (actions && actions["ArmatureAction"]) {

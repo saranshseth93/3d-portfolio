@@ -16,7 +16,6 @@ const Infernape = (props) => {
   const infernApeRef = useRef();
   const { nodes, materials, animations } = useGLTF(infernapeScene);
   const { actions } = useAnimations(animations, infernApeRef);
-  console.log(animations);
 
   useEffect(() => {
     if (actions && actions["ArmatureAction"]) {

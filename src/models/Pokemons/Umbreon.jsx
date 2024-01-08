@@ -16,7 +16,6 @@ const Umbreon = (props) => {
   const umbreonRef = useRef();
   const { nodes, materials, animations } = useGLTF(umbreonScene);
   const { actions } = useAnimations(animations, umbreonRef);
-  console.log(animations);
 
   useEffect(() => {
     if (actions && actions["ArmatureAction"]) {

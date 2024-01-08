@@ -163,20 +163,22 @@ export function Island({
       const normalizedRotation =
         ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
+      console.log(normalizedRotation);
+
       // Set the current stage based on the island's orientation
       switch (true) {
-        case normalizedRotation >= 5.45 && normalizedRotation <= 6.85:
+        case normalizedRotation >= 4.27 && normalizedRotation <= 4.6:
           setCurrentStage(1);
           break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
-          setCurrentStage(3);
-          break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
-          setCurrentStage(2);
-          break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(4);
-          break;
+        // case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+        //   setCurrentStage(3);
+        //   break;
+        // case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+        //   setCurrentStage(2);
+        //   break;
+        // case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+        //   setCurrentStage(4);
+        //   break;
         default:
           setCurrentStage(null);
       }
@@ -185,7 +187,7 @@ export function Island({
 
   return (
     <a.group ref={islandRef} {...props} dispose={null}>
-      <a.group rotation={[-Math.PI / 2, 0, 0]} scale={0.06}>
+      <a.group rotation={[-Math.PI / 2, 0, -4.5]} scale={0.06}>
         <a.group rotation={[Math.PI / 2, 0, 0]}>
           <a.group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
             <mesh

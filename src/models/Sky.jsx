@@ -12,7 +12,7 @@ export function Sky({ isRotating }) {
   // Optional: Check if GLTF is loaded
   useEffect(() => {
     if (gltf) {
-      console.log("GLTF loaded", gltf);
+      // console.log("GLTF loaded", gltf);
     } else {
       console.log("Loading GLTF...");
     }

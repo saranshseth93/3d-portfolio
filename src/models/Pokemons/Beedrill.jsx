@@ -16,7 +16,6 @@ const Beedrill = (props) => {
   const beedrillRef = useRef();
   const { nodes, materials, animations } = useGLTF(beedrillScene);
   const { actions } = useAnimations(animations, beedrillRef);
-  console.log(animations);
 
   useEffect(() => {
     if (actions && actions["Take 001"]) {

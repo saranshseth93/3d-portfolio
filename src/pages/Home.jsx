@@ -1,40 +1,23 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
 
-import sakura from "../assets/sakura.mp3";
 import { HomeInfo, Loader } from "../components";
-import { soundoff, soundon } from "../assets/icons";
 import { Bird, Island, Plane, Sky } from "../models";
 
 const Home = () => {
-  const audioRef = useRef(new Audio(sakura));
-  audioRef.current.volume = 0.4;
-  audioRef.current.loop = true;
-
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
-  const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-
-  useEffect(() => {
-    if (isPlayingMusic) {
-      audioRef.current.play();
-    }
-
-    return () => {
-      audioRef.current.pause();
-    };
-  }, [isPlayingMusic]);
 
   const adjustBiplaneForScreenSize = () => {
     let screenScale, screenPosition;
 
     // If screen width is less than 768px, adjust the scale and position
     if (window.innerWidth < 768) {
-      screenScale = [1.5, 1.5, 1.5];
-      screenPosition = [0, -1.5, 0];
+      screenScale = [2, 2, 2];
+      screenPosition = [-0.2, -0.9, 0];
     } else {
       screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
+      screenPosition = [1, -1.4, -1];
     }
 
     return [screenScale, screenPosition];
@@ -44,7 +27,7 @@ const Home = () => {
     let screenScale, screenPosition;
 
     if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
+      screenScale = [1, 1, 1];
       screenPosition = [0, -6.5, -43.4];
     } else {
       screenScale = [1, 1, 1];
@@ -56,12 +39,15 @@ const Home = () => {
 
   const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <section className="w-full h-screen relative">
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage} />}
-      </div>
+      {!isLoading && (
+        <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+          {currentStage && <HomeInfo currentStage={currentStage} />}
+        </div>
+      )}
 
       <Canvas
         className={`w-full h-screen bg-transparent ${
@@ -69,7 +55,7 @@ const Home = () => {
         }`}
         camera={{ near: 0.1, far: 1000 }}
       >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader setIsLoading={setIsLoading} />}>
           <directionalLight position={[1, 1, 1]} intensity={4} />
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 5, 10]} intensity={4} />
