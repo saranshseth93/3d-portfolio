@@ -1,9 +1,7 @@
 import { amazingCo, nookal, dnb, core, ibm } from "../assets/images";
 import {
-  car,
   contact,
   css,
-  estate,
   express,
   git,
   github,
@@ -11,20 +9,27 @@ import {
   javascript,
   linkedin,
   mongodb,
-  motion,
   mui,
   nextjs,
   nodejs,
-  pricewise,
   react,
   redux,
   sass,
-  snapgram,
-  summiz,
   tailwindcss,
-  threads,
   typescript,
 } from "../assets/icons";
+import {
+  faCloudSunRain,
+  faDumbbell,
+  faGamepad,
+  faImage,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faAirbnb,
+  faBitcoin,
+  faSpotify,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
 export const skills = [
   {
@@ -188,51 +193,74 @@ export const socialLinks = [
 
 export const projects = [
   {
-    iconUrl: pricewise,
-    theme: "btn-back-red",
-    name: "Amazon Price Tracker",
-    description:
-      "Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.",
-    link: "https://github.com/adrianhajdin/pricewise",
-  },
-  {
-    iconUrl: threads,
-    theme: "btn-back-green",
-    name: "Full Stack Threads Clone",
-    description:
-      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-    link: "https://github.com/adrianhajdin/threads",
-  },
-  {
-    iconUrl: car,
-    theme: "btn-back-blue",
-    name: "Car Finding App",
-    description:
-      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
-    link: "https://github.com/adrianhajdin/project_next13_car_showcase",
-  },
-  {
-    iconUrl: snapgram,
-    theme: "btn-back-pink",
-    name: "Full Stack Instagram Clone",
-    description:
-      "Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.",
-    link: "https://github.com/adrianhajdin/social_media_app",
-  },
-  {
-    iconUrl: estate,
-    theme: "btn-back-black",
-    name: "Real-Estate Application",
-    description:
-      "Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.",
-    link: "https://github.com/adrianhajdin/projects_realestate",
-  },
-  {
-    iconUrl: summiz,
+    iconUrl: faGamepad,
     theme: "btn-back-yellow",
-    name: "AI Summarizer Application",
+    name: "Snake Game",
     description:
-      "App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.",
-    link: "https://github.com/adrianhajdin/project_ai_summarizer",
+      "A clone of the epic retro snake game we were all stuck to in the 90s. Built using HTML, CSS and JavaScript.",
+    link: "https://naagin.netlify.app/",
+  },
+  {
+    iconUrl: faGamepad,
+    theme: "btn-back-green",
+    name: "Emoji Tic Tac Toe",
+    description:
+      "A clone of tic tac toe game but with emojis. Built using NextJS and Tailwind CSS.",
+    link: "https://tic-tac-toe-emoji.netlify.app/",
+  },
+  {
+    iconUrl: faImage,
+    theme: "btn-back-blue",
+    name: "AI Image Generation from text",
+    description:
+      "A Dall-E Clone which generates an image from text entered using AI. Also has a place to display all generated art. Built using OpenAI API, ReactJS and Tailwind CSS & MongoDB.",
+    link: "https://chitrakala.io/",
+  },
+  {
+    iconUrl: faAirbnb,
+    theme: "btn-back-pink",
+    name: "Airbnb Clone",
+    description: "An Airbnb UI clone using Tailwind CSS, mapbox and Nextjs.",
+    link: "https://airbnb-clone-cws1mjarb-saranshseth93.vercel.app/",
+  },
+  {
+    iconUrl: faYoutube,
+    theme: "btn-back-black",
+    name: "Youtube Clone",
+    description:
+      "A funtional Youtube clone using ReactJS, MaterialUI and Youtube API v3 to fetch videos.",
+    link: "https://steady-pixel-media.netlify.app/",
+  },
+  {
+    iconUrl: faDumbbell,
+    theme: "btn-back-red",
+    name: "Swasthya - Fitness App",
+    description:
+      "A functional Fitness app called Swasthya using ReactJS, MaterialUI and RapidAPI.",
+    link: "https://swasthya-exercise.netlify.app/",
+  },
+  {
+    iconUrl: faSpotify,
+    theme: "btn-back-blue",
+    name: "Dhun Lagi",
+    description:
+      "A functional Music app called Dhun Laagi using ReactJS, MaterialUI and Shazam API. It is a Spotify clone.",
+    link: "https://dhun-laagi.netlify.app/",
+  },
+  {
+    iconUrl: faBitcoin,
+    theme: "btn-back-green",
+    name: "Shaanti NFT Marketplace",
+    description:
+      "A functional NFT landing page called Shaanti used for my NFT collection using ReactJS, MaterialUI and Blockchain.",
+    link: "https://shaanti.io/",
+  },
+  {
+    iconUrl: faCloudSunRain,
+    theme: "btn-back-black",
+    name: "Is it raining?",
+    description:
+      "A weather app which tells you the weather in your city using VanillaJS, location API and Weather API. Location access needed!",
+    link: "https://is-it-rainingg.netlify.app/",
   },
 ];

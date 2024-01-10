@@ -10,9 +10,10 @@
  */
 
 import React, { useRef, useEffect } from "react";
+import * as THREE from "three";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-import scene from "../assets/3d/fox.glb";
+import scene from "../assets/3d/robot-1.glb";
 
 // 3D Model from: https://sketchfab.com/3d-models/fox-f372c04de44640fbb6a4f9e4e5845c78
 export function Fox({ currentAnimation, ...props }) {
@@ -20,49 +21,46 @@ export function Fox({ currentAnimation, ...props }) {
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
 
-  // This effect will run whenever the currentAnimation prop changes
   useEffect(() => {
     Object.values(actions).forEach((action) => action.stop());
 
     if (actions[currentAnimation]) {
-      actions[currentAnimation].play();
+      const action = actions[currentAnimation];
+
+      if (currentAnimation === "Damage_Light") {
+        // Adjusting the playback speed for a dance-like effect
+        action.setDuration(0.5); // Play the animation faster (half the duration)
+        action.setLoop(THREE.LoopRepeat); // Repeat the animation
+        action.play();
+      } else {
+        action.setLoop(THREE.LoopRepeat); // For other animations, use LoopRepeat
+        action.play();
+      }
     }
   }, [actions, currentAnimation]);
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name='Sketchfab_Scene'>
-        <primitive object={nodes.GLTF_created_0_rootJoint} />
-        <skinnedMesh
-          name='Object_7'
-          geometry={nodes.Object_7.geometry}
-          material={materials.PaletteMaterial001}
-          skeleton={nodes.Object_7.skeleton}
-        />
-        <skinnedMesh
-          name='Object_8'
-          geometry={nodes.Object_8.geometry}
-          material={materials.PaletteMaterial001}
-          skeleton={nodes.Object_8.skeleton}
-        />
-        <skinnedMesh
-          name='Object_9'
-          geometry={nodes.Object_9.geometry}
-          material={materials.PaletteMaterial001}
-          skeleton={nodes.Object_9.skeleton}
-        />
-        <skinnedMesh
-          name='Object_10'
-          geometry={nodes.Object_10.geometry}
-          material={materials.PaletteMaterial001}
-          skeleton={nodes.Object_10.skeleton}
-        />
-        <skinnedMesh
-          name='Object_11'
-          geometry={nodes.Object_11.geometry}
-          material={materials.PaletteMaterial001}
-          skeleton={nodes.Object_11.skeleton}
-        />
+      <group name="Sketchfab_Scene">
+        <group name="Sketchfab_model">
+          <group name="fbx_mergefbx" rotation={[-Math.PI, 0, 0]}>
+            <group name="Object_2">
+              <group name="RootNode">
+                <group name="Object_4">
+                  <primitive object={nodes._rootJoint} />
+                  <skinnedMesh
+                    name="Object_7"
+                    geometry={nodes.Object_7.geometry}
+                    material={materials.Robot_1}
+                    skeleton={nodes.Object_7.skeleton}
+                  />
+                  <group name="Object_6" />
+                  <group name="Robot_1_Mesh" />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
       </group>
     </group>
   );

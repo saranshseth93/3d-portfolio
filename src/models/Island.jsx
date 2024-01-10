@@ -167,8 +167,6 @@ export function Island({
 
       setNormRotation(normalizedRotation);
 
-      console.log(normalizedRotation);
-
       // Set the current stage based on the island's orientation
       switch (true) {
         case normalizedRotation >= 4.27 && normalizedRotation <= 4.6:
