@@ -27,6 +27,10 @@ body:has(.card[data-color="green"]:hover) {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
   }
 
+  .about-container {
+    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[26px] px-8 min-h-[calc(100vh-80px)];
+  }
+
   .head-text {
     @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
   }

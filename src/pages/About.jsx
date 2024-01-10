@@ -2,6 +2,8 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
+import desktopVideoPath from "../assets/videos/desktop.mp4";
+import fallbackGif from "../assets/videos/fallback.gif";
 
 import { CTA } from "../components";
 import { experiences, skills } from "../constants";
@@ -9,118 +11,174 @@ import { experiences, skills } from "../constants";
 import "react-vertical-timeline-component/style.min.css";
 import animationData from "../assets/animations/wave.json";
 import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
+  useEffect(() => {
+    // Function to update the state based on the screen width
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Check the screen size on initial load
+    checkScreenSize();
+
+    // Set up a resize event listener
+    window.addEventListener("resize", checkScreenSize);
+
+    // Clean up the event listener
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
-    <section className="max-container">
-      <h1 className="head-text">
-        Hello, I'm{" "}
-        <span className="inline-flex items-center">
-          <span className="blue-gradient_text font-semibold drop-shadow">
-            {" "}
-            Saransh
-          </span>{" "}
-          <Lottie
-            animationData={animationData}
-            loop={true}
-            style={{ width: "45px" }}
+    <>
+      <div
+        style={{
+          width: "100%",
+          height: isMobile ? "60vh" : "90vh",
+          backgroundColor: "black",
+          textAlign: "center",
+        }}
+      >
+        {/* Conditional rendering based on videoError state */}
+        {videoError ? (
+          <img
+            src={fallbackGif}
+            className=" h-full object-cover m-auto"
+            alt="Loading"
           />
-        </span>
-      </h1>
-
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
-        <p>
-          Dynamic Full-Stack Web Developer from Melbourne, blending creative
-          design and technical expertise in UI/UX, web development, and
-          application building. Skilled in JavaScript, ReactJS, NodeJS, and AWS,
-          with a strong track record in developing effective and scalable
-          solutions.
-        </p>
+        ) : (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            preload="auto"
+            onError={handleVideoError}
+          >
+            <source src={desktopVideoPath} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
       </div>
+      <section className="max-container about-container">
+        <h1 className="head-text">
+          Hello, I'm{" "}
+          <span className="inline-flex items-center">
+            <span className="blue-gradient_text font-semibold drop-shadow">
+              {" "}
+              Saransh
+            </span>{" "}
+            <Lottie
+              animationData={animationData}
+              loop={true}
+              style={{ width: "45px" }}
+            />
+          </span>
+        </h1>
 
-      <div className="py-10 flex flex-col">
-        <h3 className="subhead-text">My Skills</h3>
-
-        <div className="mt-16 flex flex-wrap gap-12">
-          {skills.map((skill) => (
-            <div className="block-container w-20 h-20" key={skill.name}>
-              <div className="btn-back rounded-xl" />
-              <div className="btn-front rounded-xl flex justify-center items-center">
-                <img
-                  src={skill.imageUrl}
-                  alt={skill.name}
-                  className="w-1/2 h-1/2 object-contain"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="py-16">
-        <h3 className="subhead-text">Work Experience.</h3>
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p>
-            I've worked with all sorts of companies, leveling up my skills and
-            teaming up with smart people. Here's the rundown:
+            Dynamic Full-Stack Web Developer from Melbourne, blending creative
+            design and technical expertise in UI/UX, web development, and
+            application building. Skilled in JavaScript, ReactJS, NodeJS, and
+            AWS, with a strong track record in developing effective and scalable
+            solutions.
           </p>
         </div>
 
-        <div className="mt-12 flex">
-          <VerticalTimeline>
-            {experiences.map((experience, index) => (
-              <VerticalTimelineElement
-                key={experience.company_name}
-                date={experience.date}
-                iconStyle={{ background: experience.iconBg }}
-                icon={
-                  <div className="flex justify-center items-center w-full h-full">
-                    <img
-                      src={experience.icon}
-                      alt={experience.company_name}
-                      className="w-[60%] h-[60%] object-contain"
-                    />
-                  </div>
-                }
-                contentStyle={{
-                  borderBottom: "8px",
-                  borderStyle: "solid",
-                  borderBottomColor: experience.iconBg,
-                  boxShadow: "none",
-                }}
-              >
-                <div>
-                  <h3 className="text-black text-xl font-poppins font-semibold">
-                    {experience.title}
-                  </h3>
-                  <p
-                    className="text-black-500 font-medium text-base"
-                    style={{ margin: 0 }}
-                  >
-                    {experience.company_name}
-                  </p>
+        <div className="py-10 flex flex-col">
+          <h3 className="subhead-text">My Skills</h3>
+
+          <div className="mt-16 flex flex-wrap gap-12">
+            {skills.map((skill) => (
+              <div className="block-container w-20 h-20" key={skill.name}>
+                <div className="btn-back rounded-xl" />
+                <div className="btn-front rounded-xl flex justify-center items-center">
+                  <img
+                    src={skill.imageUrl}
+                    alt={skill.name}
+                    className="w-1/2 h-1/2 object-contain"
+                  />
                 </div>
-
-                <ul className="my-5 list-disc ml-5 space-y-2">
-                  {experience.points.map((point, index) => (
-                    <li
-                      key={`experience-point-${index}`}
-                      className="text-black-500/50 font-normal pl-1 text-sm"
-                    >
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </VerticalTimelineElement>
+              </div>
             ))}
-          </VerticalTimeline>
+          </div>
         </div>
-      </div>
 
-      <hr className="border-slate-200" />
+        <div className="py-16">
+          <h3 className="subhead-text">Work Experience.</h3>
+          <div className="mt-5 flex flex-col gap-3 text-slate-500">
+            <p>
+              I've worked with all sorts of companies, leveling up my skills and
+              teaming up with smart people. Here's the rundown:
+            </p>
+          </div>
 
-      <CTA />
-    </section>
+          <div className="mt-12 flex">
+            <VerticalTimeline>
+              {experiences.map((experience, index) => (
+                <VerticalTimelineElement
+                  key={experience.company_name}
+                  date={experience.date}
+                  iconStyle={{ background: experience.iconBg }}
+                  icon={
+                    <div className="flex justify-center items-center w-full h-full">
+                      <img
+                        src={experience.icon}
+                        alt={experience.company_name}
+                        className="w-[60%] h-[60%] object-contain"
+                      />
+                    </div>
+                  }
+                  contentStyle={{
+                    borderBottom: "8px",
+                    borderStyle: "solid",
+                    borderBottomColor: experience.iconBg,
+                    boxShadow: "none",
+                  }}
+                >
+                  <div>
+                    <h3 className="text-black text-xl font-poppins font-semibold">
+                      {experience.title}
+                    </h3>
+                    <p
+                      className="text-black-500 font-medium text-base"
+                      style={{ margin: 0 }}
+                    >
+                      {experience.company_name}
+                    </p>
+                  </div>
+
+                  <ul className="my-5 list-disc ml-5 space-y-2">
+                    {experience.points.map((point, index) => (
+                      <li
+                        key={`experience-point-${index}`}
+                        className="text-black-500/50 font-normal pl-1 text-sm"
+                      >
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </VerticalTimelineElement>
+              ))}
+            </VerticalTimeline>
+          </div>
+        </div>
+
+        <hr className="border-slate-200" />
+
+        <CTA />
+      </section>
+    </>
   );
 };
 

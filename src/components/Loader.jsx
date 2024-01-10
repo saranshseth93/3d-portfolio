@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Html, useProgress } from "@react-three/drei";
 import desktopVideoPath from "../assets/videos/desktop.mp4";
-import mobileVideoPath from "../assets/videos/mobile.mp4";
+import fallbackGif from "../assets/videos/fallback.gif";
 
 const LoadingMessages = [
   "Summoning Charizard...",
@@ -21,7 +21,7 @@ const Loader = (props) => {
   const [isMobile, setIsMobile] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
   const [messageIndex, setMessageIndex] = useState(0);
-  const [key, setKey] = useState(0); // Used to reset the animation
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     // Function to update the state based on the screen width
@@ -44,7 +44,6 @@ const Loader = (props) => {
 
     const interval = setInterval(() => {
       setMessageIndex((prevIndex) => (prevIndex + 1) % LoadingMessages.length);
-      setKey((prevKey) => prevKey + 1); // Reset animation
     }, 2000); // Sync with CSS animation duration
 
     return () => clearInterval(interval);
@@ -59,20 +58,42 @@ const Loader = (props) => {
     return null; // Hide loader once loading is complete
   }
 
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
   return (
     <Html fullscreen>
       <div className="top-0 left-0 w-full h-full z-50">
         {/* Video container taking up 70% of the viewport height */}
-        <div style={{ height: isMobile ? "50vh" : "70vh" }}>
-          <video autoPlay loop muted className="w-full h-full object-cover">
-            <source src={desktopVideoPath} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* YouTube-style loading animation */}
-          {/* <div
-            className="h-1 z-51 bg-blue-500"
-            style={{ width: `${progress}%` }}
-          /> */}
+        <div
+          style={{
+            height: isMobile ? "50vh" : "70vh",
+            backgroundColor: "black",
+            textAlign: "center",
+          }}
+        >
+          {/* Conditional rendering based on videoError state */}
+          {videoError ? (
+            <img
+              src={fallbackGif}
+              className=" h-full object-cover m-auto"
+              alt="Loading"
+            />
+          ) : (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              preload="auto"
+              onError={handleVideoError}
+            >
+              <source src={desktopVideoPath} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
           <div
             className="relative bottom-0 left-0 h-1"
             style={{ width: `${progress}%`, backgroundColor: "#c7a008" }}
