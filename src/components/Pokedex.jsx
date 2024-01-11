@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./stylesheets/Pokedex-styles.css";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faPowerOff,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pokedex = () => {
@@ -33,8 +37,8 @@ const Pokedex = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 overflow-y-auto">
-      <div className=" p-6 rounded-lg relative w-full overflow-y-auto">
-        <div className="" id="square">
+      <div className=" relative w-full overflow-y-auto">
+        <div className="rounded-b-lg" id="square">
           <div className="" id="topSquare">
             <div className="" id="topbar-square">
               <div className="" id="buttonWhite">
@@ -47,9 +51,10 @@ const Pokedex = () => {
               </div>
               <div className="" id="topbar-square-2">
                 <div
-                  className={`text-right text-white ${
+                  className={`text-right text-sm ${
                     !isMobile ? "pr-10 pt-3" : "pr-3 pt-2"
                   }`}
+                  style={{ color: "#070707", fontFamily: "Consolas Bold" }}
                 >
                   Instruction Manual
                 </div>
@@ -99,14 +104,43 @@ const Pokedex = () => {
             </div>
           </div>
           <div id="bottom">
-            <div className="" id="buttonBlue"></div>
-            <div className="" id="buttonYellow" onClick={closeModal}>
-              Understood!{!isMobile ? "Take me to Island" : ""}
+            <div className="" id="buttonBlue">
+              <FontAwesomeIcon
+                icon={faPowerOff}
+                className="text-lg"
+                style={{ color: "#161616" }}
+              />
             </div>
-            <div className="" id="dpad-horizontal"></div>
-            <div className="" id="dpad-vertical"></div>
-            <div className="" id="select"></div>
-            <div className="" id="start"></div>
+            <div
+              className=""
+              id="buttonYellow"
+              onClick={closeModal}
+              style={{ color: "#070707", fontFamily: "Consolas Bold" }}
+            >
+              Understood!{!isMobile ? ` Take me to Island` : ""}
+            </div>
+            {!isMobile ? (
+              <>
+                <div className="" id="dpad-horizontal"></div>
+                <div className="" id="dpad-vertical"></div>
+              </>
+            ) : (
+              <>
+                <div className="" id="buttonCyan">
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className="text-lg"
+                    style={{ color: "cyan" }}
+                  />
+                </div>
+              </>
+            )}
+            <div className="" id="select">
+              Select
+            </div>
+            <div className="" id="start">
+              Start
+            </div>
           </div>
         </div>
       </div>

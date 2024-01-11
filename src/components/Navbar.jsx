@@ -5,12 +5,13 @@ import { useState } from "react";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Navbar = () => {
+const Navbar = ({ setIsNavVisible }) => {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
 
   const handleNav = () => {
     setNav(!nav);
+    setIsNavVisible(!nav);
   };
 
   const navItems = [
@@ -43,9 +44,15 @@ const Navbar = () => {
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
         {nav ? (
-          <FontAwesomeIcon icon={faXmark} className="text-gray-400 text-2xl" />
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="bg-black rounded-lg text-white text-2xl"
+          />
         ) : (
-          <FontAwesomeIcon icon={faBars} className="text-gray-400 text-2xl" />
+          <FontAwesomeIcon
+            icon={faBars}
+            className="bg-black rounded-lg text-white text-2xl"
+          />
         )}
       </div>
 

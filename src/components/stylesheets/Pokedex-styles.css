@@ -68,6 +68,7 @@
   top: 8%;
   left: 8%;
   z-index: 3;
+  border: 1px solid black;
 }
 
 #topbar-square-2 {
@@ -95,6 +96,7 @@
   top: 45%;
   left: -18%;
   z-index: 2;
+  border: 3px solid black;
 }
 
 #buttonGreen {
@@ -109,6 +111,7 @@
   top: 45%;
   left: -8%;
   z-index: 2;
+  border: 3px solid black;
 }
 
 #buttontopYellow {
@@ -123,6 +126,7 @@
   top: 45%;
   left: 2%;
   z-index: 2;
+  border: 3px solid black;
 }
 
 #bottom {
@@ -146,6 +150,7 @@
   height: 75%;
   width: 100%;
   z-index: 1;
+  border: 3px solid black;
 }
 
 #screen2 {
@@ -238,26 +243,36 @@
   cursor: pointer;
   width: 15%;
   border-radius: 30px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto;
   height: 8%;
   left: 30%;
   top: 30%;
   position: absolute;
   background: #58bb69;
+  border: 3px solid black;
+  font-family: "Consolas Bold";
+  font-size: 12px;
 }
 
 #start {
   cursor: pointer;
   width: 15%;
   border-radius: 30px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto;
   height: 8%;
   left: 48%;
   top: 30%;
   position: absolute;
   background: #f07147;
+  border: 3px solid black;
+  font-family: "Consolas Bold";
+  font-size: 12px;
 }
 
 #buttonBlue {
@@ -266,18 +281,38 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   position: absolute;
   top: 29%;
   left: 5%;
   z-index: 2;
+  border: 3px solid black;
+}
+
+#buttonCyan {
+  cursor: pointer;
+  background: #585858;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  top: 29%;
+  right: 5%;
+  z-index: 2;
+  border: 3px solid black;
 }
 
 #buttonYellow {
   cursor: pointer;
   background: #ffcf54;
-  border-radius: 5%;
+  border-radius: 10px;
   width: 280px;
   padding: 8px;
   height: 50px;
@@ -290,6 +325,7 @@
   left: 25%;
   z-index: 2;
   font-family: "Consolas";
+  border: 3px solid black;
 }
 
 #dpad-horizontal {
@@ -337,5 +373,10 @@
 
   #dpad-vertical {
     width: 68px;
+  }
+
+  #start,
+  #select {
+    font-size: 8px;
   }
 }

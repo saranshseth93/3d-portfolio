@@ -1,11 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 
 import { HomeInfo, Loader } from "../components";
 import { Bird, Island, Plane, Sky } from "../models";
 import Pokedex from "../components/Pokedex";
 
-const Home = () => {
+const Home = ({ isNavVisible }) => {
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
 
@@ -46,9 +46,11 @@ const Home = () => {
     <section className="w-full h-screen relative">
       {!isLoading && (
         <>
-          <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-            {currentStage && <HomeInfo currentStage={currentStage} />}
-          </div>
+          {!isNavVisible && (
+            <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+              {currentStage && <HomeInfo currentStage={currentStage} />}
+            </div>
+          )}
           <Pokedex />
         </>
       )}
