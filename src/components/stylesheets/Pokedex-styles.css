@@ -1,0 +1,341 @@
+@font-face {
+  font-family: "Consolas";
+  src: url("../../assets/fonts/CONSOLA.TTF");
+}
+
+@font-face {
+  font-family: "Consolas Bold";
+  src: url("../../assets/fonts/CONSOLAB.TTF");
+}
+
+#square {
+  width: 500px;
+  height: 650px;
+  display: block;
+  margin: auto;
+  background: #fc2243;
+  z-index: 3;
+}
+
+#topSquare {
+  width: 75%;
+  display: block;
+  margin: auto;
+  height: 50%;
+  position: relative;
+  background: none;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#topbar-square {
+  width: 55%;
+  display: block;
+  margin: auto;
+  height: 25%;
+  left: -16.5%;
+  border-bottom-right-radius: 80%;
+  position: absolute;
+  background: #d50625;
+  border-radius: 0%;
+  z-index: 1;
+}
+
+#buttonWhite {
+  cursor: pointer;
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  z-index: 2;
+}
+
+#buttonLightBlue {
+  cursor: pointer;
+  background: #71cdf4;
+  border-radius: 50%;
+  width: 85%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  z-index: 3;
+}
+
+#topbar-square-2 {
+  width: 162%;
+  display: block;
+  margin: auto;
+  height: 60%;
+  left: 80%;
+  border-bottom-left-radius: 80px;
+  position: absolute;
+  background: #d50625;
+  border-radius: 0%;
+  z-index: 3;
+}
+
+#buttonLightRed {
+  cursor: pointer;
+  background: #fc2243;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: -18%;
+  z-index: 2;
+}
+
+#buttonGreen {
+  cursor: pointer;
+  background: #58bb69;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: -8%;
+  z-index: 2;
+}
+
+#buttontopYellow {
+  cursor: pointer;
+  background: #ffcf54;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: 2%;
+  z-index: 2;
+}
+
+#bottom {
+  width: 100%;
+  display: block;
+  margin: auto;
+  height: 50%;
+  position: relative;
+  background: none;
+  border-radius: 5%;
+  z-index: 1;
+}
+
+#screen {
+  position: absolute;
+  background: #e6e6e6;
+  display: block;
+  margin: auto;
+  border-radius: 5%;
+  bottom: -10%;
+  height: 75%;
+  width: 100%;
+  z-index: 1;
+}
+
+#screen2 {
+  position: absolute;
+  background: #e5f6fc;
+  display: block;
+  margin: auto;
+  border-radius: 8%;
+  top: 10%;
+  left: 10%;
+  height: 75%;
+  width: 80%;
+  z-index: 2;
+  padding: 8px;
+  font-family: "Consolas";
+  font-size: small;
+  overflow-x: auto;
+}
+
+#screen2 .bold {
+  font-family: "Consolas Bold";
+}
+
+#screenReflection {
+  position: absolute;
+  background: white;
+  display: block;
+  margin: auto;
+  opacity: 0.4;
+  border-radius: 0%;
+  left: 15%;
+  height: 100%;
+  width: 20%;
+  z-index: 2;
+}
+
+#buttonRed {
+  cursor: pointer;
+  background: #d50625;
+  border-radius: 50%;
+  width: 5.5%;
+  height: 7%;
+  display: block;
+  margin: auto;
+  position: absolute;
+  bottom: 2%;
+  left: 14%;
+  z-index: 2;
+}
+
+#bar1 {
+  position: absolute;
+  background: #808080;
+  display: block;
+  margin: auto;
+  opacity: 0.4;
+  border-radius: 5%;
+  right: 10%;
+  bottom: 10%;
+  height: 2%;
+  width: 20%;
+  z-index: 3;
+}
+
+#bar2 {
+  position: absolute;
+  background: #808080;
+  display: block;
+  margin: auto;
+  opacity: 0.4;
+  border-radius: 5%;
+  right: 10%;
+  bottom: 3%;
+  height: 2%;
+  width: 20%;
+  z-index: 3;
+}
+
+#bottomSquare {
+  width: 30%;
+  border-radius: 0%;
+  display: block;
+  margin: 10px auto;
+  height: 3%;
+  position: relative;
+  background: rgba(172, 124, 182, 0.4);
+}
+
+#select {
+  cursor: pointer;
+  width: 15%;
+  border-radius: 30px;
+  display: block;
+  margin: 10px auto;
+  height: 8%;
+  left: 30%;
+  top: 30%;
+  position: absolute;
+  background: #58bb69;
+}
+
+#start {
+  cursor: pointer;
+  width: 15%;
+  border-radius: 30px;
+  display: block;
+  margin: 10px auto;
+  height: 8%;
+  left: 48%;
+  top: 30%;
+  position: absolute;
+  background: #f07147;
+}
+
+#buttonBlue {
+  cursor: pointer;
+  background: #1697f9;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 29%;
+  left: 5%;
+  z-index: 2;
+}
+
+#buttonYellow {
+  cursor: pointer;
+  background: #ffcf54;
+  border-radius: 5%;
+  width: 280px;
+  padding: 8px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  z-index: 2;
+  font-family: "Consolas";
+}
+
+#dpad-horizontal {
+  cursor: pointer;
+  background: #404040;
+  height: 90px;
+  width: 23px;
+  right: 16%;
+  top: 32%;
+  z-index: 3;
+  margin: auto;
+  display: block;
+  position: absolute;
+}
+
+#dpad-vertical {
+  cursor: pointer;
+  background: #404040;
+  height: 23px;
+  width: 102px;
+  right: 8%;
+  top: 42%;
+  z-index: 3;
+  margin: auto;
+  display: block;
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  #square {
+    width: 90vw;
+    height: 90vh;
+  }
+
+  #buttonYellow {
+    width: 130px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  #dpad-horizontal {
+    height: 60px;
+    top: 35%;
+  }
+
+  #dpad-vertical {
+    width: 68px;
+  }
+}
