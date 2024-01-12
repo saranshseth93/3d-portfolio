@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import { HomeInfo, Loader } from "../components";
 import { Bird, Island, Plane, Sky } from "../models";
@@ -8,7 +9,13 @@ import Pokedex from "../components/Pokedex";
 const Home = ({ isNavVisible = false }) => {
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setIsLoading(false);
+    }
+  }, [location]);
 
   const adjustBiplaneForScreenSize = () => {
     let screenScale, screenPosition;
@@ -39,24 +46,9 @@ const Home = ({ isNavVisible = false }) => {
     return [screenScale, screenPosition];
   };
 
-  useEffect(() => {
-    // Function to update the state based on the screen width
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Check the screen size on initial load
-    checkScreenSize();
-
-    // Set up a resize event listener
-    window.addEventListener("resize", checkScreenSize);
-
-    // Clean up the event listener
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
-
   const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
   const [islandScale, islandPosition] = adjustIslandForScreenSize();
+  const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -68,9 +60,16 @@ const Home = ({ isNavVisible = false }) => {
               {currentStage && <HomeInfo currentStage={currentStage} />}
             </div>
           )}
-          <Pokedex />
+          <Pokedex open={open} setOpen={setOpen} />
         </>
       )}
+
+      <button
+        className="absolute bottom-5 right-5 z-10 bg-red-600 text-white px-4 py-2 rounded-md"
+        onClick={() => setOpen(true)}
+      >
+        Show instructions
+      </button>
 
       <Canvas
         className={`w-full h-screen bg-transparent ${

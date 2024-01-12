@@ -7,17 +7,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Pokedex = () => {
-  const [isModalOpen, setModalOpen] = useState(true);
+const Pokedex = ({ open, setOpen }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const closeModal = () => {
     setModalOpen(false);
+    setOpen(false);
+    localStorage.setItem("pokedexShown", "true");
   };
 
   useEffect(() => {
-    setModalOpen(true);
+    const pokedexShown = localStorage.getItem("pokedexShown");
+    if (!pokedexShown || open) {
+      setModalOpen(true);
+    }
+  }, [open]);
 
+  useEffect(() => {
     // Function to update the state based on the screen width
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
