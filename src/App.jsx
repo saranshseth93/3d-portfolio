@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Footer, Navbar } from "./components";
 import { About, Contact, Home, Projects } from "./pages";
 import { useState } from "react";
+import Attributions from "./pages/Attributions";
 
 const App = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
                   <Route path="/about" element={<About />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/attributions" element={<Attributions />} />
                 </Routes>
                 <Footer />
               </>

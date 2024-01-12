@@ -23,6 +23,11 @@ const Footer = () => {
             </Link>
           ))}
         </div>
+        <div className="flex gap-3 justify-center items-center">
+          <Link to="/attributions" target="_blank" className="text-blue-500">
+            All 3D asset attributions
+          </Link>
+        </div>
       </div>
     </footer>
   );

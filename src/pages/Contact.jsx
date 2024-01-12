@@ -1,7 +1,8 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { useRef, useState } from "react";
-
+import animationData from "../assets/animations/contact.json";
+import Lottie from "lottie-react";
 import { Fox } from "../models";
 import useAlert from "../hooks/useAlert";
 import { Alert } from "../components";
@@ -77,7 +78,19 @@ const Contact = () => {
         {alert.show && <Alert {...alert} />}
 
         <div className="flex-1 min-w-[50%] flex flex-col">
-          <h1 className="head-text">Get in Touch</h1>
+          <h1 className="head-text">
+            Get{" "}
+            <span className="inline-flex items-center">
+              <span className="blue-gradient_text drop-shadow font-semibold">
+                in Touch
+              </span>
+              <Lottie
+                animationData={animationData}
+                loop={true}
+                style={{ width: "70px", margin: "0 10px" }}
+              />
+            </span>
+          </h1>
 
           <form
             ref={formRef}
