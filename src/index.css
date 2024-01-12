@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Consolas Bold";
-  src: url("../../assets/fonts/CONSOLAB.TTF");
+  src: url("./assets/fonts/CONSOLAB.TTF");
 }
 
 body {

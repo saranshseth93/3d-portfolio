@@ -13,21 +13,12 @@ const App = () => {
         <Navbar setIsNavVisible={setIsNavVisible} />
         <Routes>
           <Route path="/" element={<Home isNavVisible={isNavVisible} />} />
-          <Route
-            path="/*"
-            element={
-              <>
-                <Routes>
-                  <Route path="/about" element={<About />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/attributions" element={<Attributions />} />
-                </Routes>
-                <Footer />
-              </>
-            }
-          />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/attributions" element={<Attributions />} />
         </Routes>
+        <Footer />
       </Router>
     </main>
   );
