@@ -30,9 +30,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
-          from_name: form.name,
+          name: form.name,
           to_name: "Saransh Seth",
-          from_email: form.email,
+          user_email: form.email,
           to_email: "saranshseth93@gmail.com",
           message: form.message,
         },
@@ -147,14 +147,14 @@ const Contact = () => {
               far: 1000,
             }}
           >
-            <directionalLight position={[0, 0, 1]} intensity={2.5} />
-            <ambientLight intensity={1} />
-            <pointLight position={[5, 10, 0]} intensity={2} />
+            <directionalLight position={[0, 0, 1]} intensity={4.5} />
+            <ambientLight intensity={5} />
+            <pointLight position={[5, 10, 0]} intensity={5} />
             <spotLight
               position={[10, 10, 10]}
               angle={0.15}
               penumbra={1}
-              intensity={2}
+              intensity={4}
             />
 
             {/* <Suspense fallback={<Loader />}> */}
