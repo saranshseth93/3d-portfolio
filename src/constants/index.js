@@ -23,6 +23,7 @@ import {
   faDumbbell,
   faGamepad,
   faImage,
+  faComments,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faAirbnb,
@@ -192,6 +193,14 @@ export const socialLinks = [
 ];
 
 export const projects = [
+  {
+    iconUrl: faComments,
+    theme: "btn-back-red",
+    name: "Bindi Buzz - Chat App",
+    description:
+      "A realtime chat application including adding friends using Google Authentication, Redis, ReactJS, NextJS, Typescript and TailwindCSS.",
+    link: "https://bindibuzz.com",
+  },
   {
     iconUrl: faGamepad,
     theme: "btn-back-yellow",
