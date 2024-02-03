@@ -198,7 +198,7 @@ export const projects = [
     theme: "btn-back-red",
     name: "Bindi Buzz - Chat App",
     description:
-      "A realtime chat application including adding friends using Google Authentication, Redis, ReactJS, NextJS, Typescript and TailwindCSS.",
+      "A realtime chat application with AI personal assistant(ChatGPT integration) including adding friends using Google Authentication, Redis, ReactJS, NextJS, Typescript and TailwindCSS.",
     link: "https://bindibuzz.com",
   },
   {
